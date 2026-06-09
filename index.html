@@ -33,7 +33,7 @@
       line-height: 1.7;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: var(--bg);
@@ -56,7 +56,7 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       max-width: 860px; margin: 0 auto;
       padding: 7rem 2rem 5rem;
@@ -65,7 +65,6 @@
       animation: fadeUp .8s ease both;
     }
     .hero-divider { background: var(--border); }
-    .hero-left {}
     .hero-eyebrow {
       font-family: var(--mono);
       font-size: 0.72rem; letter-spacing: 0.18em;
@@ -96,8 +95,12 @@
     .btn-primary:hover { background: #154060; }
     .btn-ghost { border-color: var(--border); color: var(--muted); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-doc {
+      border-color: var(--accent2); color: var(--accent2);
+      font-size: 0.75rem; padding: 0.45rem 1rem;
+    }
+    .btn-doc:hover { background: var(--tag-bg); }
 
-    .hero-right {}
     .info-block { margin-bottom: 1.8rem; }
     .info-label {
       font-family: var(--mono);
@@ -115,7 +118,7 @@
       font-family: var(--mono);
     }
 
-    /* ── SECTION WRAPPER ── */
+    /* SECTION */
     .section {
       max-width: 860px; margin: 0 auto;
       padding: 4rem 2rem;
@@ -129,27 +132,32 @@
       font-family: var(--mono); font-size: 0.7rem;
       color: var(--muted); letter-spacing: 0.15em;
     }
-    .section-title {
-      font-family: var(--serif);
-      font-size: 1.9rem; font-weight: 600;
-    }
     .section-ac {
       font-family: var(--mono); font-size: 0.7rem;
       color: var(--accent2); letter-spacing: 0.12em;
       text-transform: uppercase;
     }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.9rem; font-weight: 600;
+    }
 
-    /* ── AC CARD ── */
+    /* AC CARD */
     .ac-card {
       background: var(--surface);
       border: 1px solid var(--border);
       padding: 2.2rem 2.4rem;
       margin-bottom: 1.2rem;
     }
+    .ac-card-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+      margin-bottom: 1.4rem; flex-wrap: wrap;
+    }
     .ac-card-title {
       font-family: var(--serif);
       font-size: 1.2rem; font-weight: 600;
-      color: var(--accent); margin-bottom: 1.2rem;
+      color: var(--accent);
       display: flex; align-items: center; gap: 0.8rem;
     }
     .ac-card-title::before {
@@ -157,6 +165,8 @@
       width: 28px; height: 2px; background: var(--accent2);
       flex-shrink: 0;
     }
+    .doc-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+
     .ac-body { font-size: 0.92rem; color: var(--ink); }
     .ac-body p { margin-bottom: 0.8rem; }
     .ac-body p:last-child { margin-bottom: 0; }
@@ -203,7 +213,7 @@
     }
     .problem-block p { font-size: 0.88rem; }
 
-    /* ── CONCLUSION ── */
+    /* CONCLUSION */
     .conclusion-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -221,14 +231,11 @@
     }
     .concl-item p { font-size: 0.88rem; }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 3rem;
-      text-align: center;
-      font-family: var(--mono);
-      font-size: 0.72rem; color: var(--muted);
-      letter-spacing: 0.08em;
+      padding: 2rem 3rem; text-align: center;
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--muted); letter-spacing: 0.08em;
     }
 
     @keyframes fadeUp {
@@ -244,23 +251,22 @@
       .section { padding: 2.5rem 1.2rem; }
       .ac-card { padding: 1.4rem 1.2rem; }
       .conclusion-grid { grid-template-columns: 1fr; }
+      .ac-card-header { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a class="nav-brand" href="#">Alia ABDEDAIME</a>
     <ul class="nav-links">
-      <li><a href="#ac2101">AC21.01</a></li>
+      <li><a href="#ac2104">AC21.04</a></li>
       <li><a href="#ac2106">AC21.06</a></li>
       <li><a href="#ac2301">AC23.01</a></li>
       <li><a href="#conclusion">Bilan</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="hero-left">
       <p class="hero-eyebrow">E-Portfolio · BUT R&T · 2025 — 2026</p>
@@ -283,7 +289,7 @@
       <div class="info-block">
         <p class="info-label">Apprentissages critiques</p>
         <div class="tags">
-          <span class="tag">AC21.01</span>
+          <span class="tag">AC21.04</span>
           <span class="tag">AC21.06</span>
           <span class="tag">AC23.01</span>
         </div>
@@ -298,72 +304,79 @@
     </div>
   </header>
 
-  <!-- ═══ AC21.01 ═══ -->
-  <section class="section" id="ac2101">
+  <!-- AC21.04 -->
+  <section class="section" id="ac2104">
     <div class="section-header">
       <span class="section-num">01</span>
       <div>
-        <p class="section-ac">AC21.01 · Compétence Administrer</p>
-        <h2 class="section-title">Configurer et dépanner le routage dans un réseau</h2>
+        <p class="section-ac">AC21.04 · Compétence Administrer</p>
+        <h2 class="section-title">Déployer des services réseau avancés</h2>
       </div>
     </div>
 
-    <!-- PREUVE -->
     <div class="ac-card">
-      <div class="ac-card-title">Preuve — TD ACL étendues (R3.01 Réseaux de campus)</div>
+      <div class="ac-card-header">
+        <div class="ac-card-title">Preuve — Projet R3.03 · Services réseau avancés</div>
+        <div class="doc-btns">
+          <a href="preuve_AC2104.pdf" target="_blank" class="btn btn-doc">📄 Voir la preuve</a>
+          <a href="analyse_AC2104.pdf" target="_blank" class="btn btn-doc">🔍 Analyse réflexive</a>
+        </div>
+      </div>
       <div class="ac-body">
 
         <p class="ac-sub">Contexte</p>
-        <p>TD réalisé dans le cadre du module R3.01. Objectif : sécuriser le trafic d'un réseau d'entreprise segmenté en VLANs à l'aide de listes de contrôle d'accès étendues. Infrastructure simulée : deux routeurs Cisco (R1, R2), deux commutateurs (S1, S2) et deux PC répartis sur trois VLANs — Gestion (VLAN 20), Opérations (VLAN 30), Ventes (VLAN 40). R1 assure le routage inter-VLAN en mode <em>router-on-a-stick</em>.</p>
+        <p>Projet réalisé sur 4 séances de TP (15h) dans le cadre du module R3.03. Déploiement d'une infrastructure complète de services réseau sur des VMs Windows Server 2016 hébergées sur vCenter. Trois services couverts : DNS (redondance + délégation de zone), accès distant RDS (Remote Desktop Web Access), et messagerie (hMailServer). Machines intégrées au domaine Active Directory peda.rt.local.</p>
 
         <p class="ac-sub">Savoirs mis en œuvre</p>
         <div class="tags" style="margin-bottom:0.8rem">
-          <span class="tag">ACL étendues</span>
-          <span class="tag">Inter-VLAN 802.1Q</span>
-          <span class="tag">Trunking</span>
-          <span class="tag">SSH / HTTP / HTTPS / ICMP</span>
-          <span class="tag">Cisco IOS</span>
+          <span class="tag">DNS / zones / enregistrements</span>
+          <span class="tag">SMTP / POP3 / IMAP</span>
+          <span class="tag">RDS / RemoteApp</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">Windows Server 2016</span>
+          <span class="tag">Wireshark</span>
         </div>
-        <p>Placement des ACL : une ACL étendue doit être appliquée au plus près de la source. Filtrage par protocole (TCP, UDP, ICMP), adresse source/destination et numéro de port.</p>
 
-        <p class="ac-sub">Résultats des tests de vérification</p>
+        <p class="ac-sub">Résultats</p>
         <ul class="result-list">
-          <li class="ko">PC-A → ping Ventes (10.40.0.10) : BLOQUÉ ✓</li>
-          <li class="ok">PC-A → ping Gestion (10.20.0.1) : Autorisé ✓</li>
-          <li class="ko">PC-B → ping Opérations (10.30.0.10) : BLOQUÉ ✓</li>
-          <li class="ko">PC-B → ping Gestion (10.20.0.1) : BLOQUÉ ✓</li>
-          <li class="ok">PC-B → ping Loopback R1 (172.16.1.1) : Autorisé ✓</li>
-          <li class="ko">PC-B → HTTPS Gestion : BLOQUÉ ✓</li>
-          <li class="ok">PC-B → HTTPS Loopback : Autorisé ✓</li>
-          <li class="ko">PC-B → SSH R2 (10.20.0.4) : BLOQUÉ ✓</li>
-          <li class="ok">PC-B → SSH Loopback : Autorisé ✓</li>
+          <li class="ok">Résolution DNS interne et externe : Fonctionnelle</li>
+          <li class="ok">Redondance DNS primaire/secondaire — transfert de zone : Validé</li>
+          <li class="ok">Délégation de sous-domaine : Validée par nslookup</li>
+          <li class="ok">Connexions RDS simultanées (&gt;2) : Validées</li>
+          <li class="ok">Remote Desktop Web Access + RemoteApp (Thunderbird, Wireshark) : Fonctionnel</li>
+          <li class="ok">Envoi/réception mail interne et externe (tp.rt) : Fonctionnel</li>
+          <li class="ok">Client POP3 vs IMAP — différences observées et documentées</li>
         </ul>
 
         <p class="ac-sub">Problèmes rencontrés &amp; solutions</p>
         <div class="problem-block">
-          <p class="prob-label">Problème 1 — Sens d'application ACL</p>
-          <p>Confusion inbound/outbound : une ACL appliquée en outbound sur la mauvaise sous-interface ne filtrait pas le trafic attendu.</p>
-          <p style="margin-top:0.4rem"><strong>Solution :</strong> retracer le chemin du paquet depuis la source pour identifier la bonne interface et le bon sens (inbound sur la sous-interface du VLAN source).</p>
+          <p class="prob-label">Problème 1 — Transfert de zone DNS</p>
+          <p>Le transfert vers le secondaire échouait — zone non répliquée.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> l'autorisation de transfert n'était pas activée sur le primaire. Ajout de l'IP du secondaire dans les paramètres de transfert.</p>
         </div>
         <div class="problem-block">
-          <p class="prob-label">Problème 2 — Ordre des règles ACL</p>
-          <p>Un <code>permit any</code> placé trop haut dans la liste neutralisait les règles <code>deny</code> suivantes.</p>
-          <p style="margin-top:0.4rem"><strong>Solution :</strong> placer systématiquement les règles <code>deny</code> spécifiques avant tout <code>permit any</code>.</p>
+          <p class="prob-label">Problème 2 — Mails externes non reçus</p>
+          <p>L'enregistrement MX pointait vers un alias CNAME au lieu d'un enregistrement A direct.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> correction de l'enregistrement MX pour pointer directement vers l'IP du serveur de messagerie.</p>
+        </div>
+        <div class="problem-block">
+          <p class="prob-label">Problème 3 — Limite 2 sessions RDS</p>
+          <p>Impossible de dépasser 2 connexions simultanées.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> le serveur de licences CAL (RCLicencespeda) n'était pas déclaré dans la configuration RDS. Ajout manuel du serveur de licences.</p>
         </div>
       </div>
 
-      <!-- ANALYSE RÉFLEXIVE -->
       <div class="reflexive-box">
-        <p class="ac-sub">Analyse réflexive — Modèle de Gibbs</p>
-        <p><strong>Description :</strong> Configuration de quatre ACL étendues nommées sur R1 pour implémenter des politiques de sécurité précises entre les VLANs Gestion, Opérations et Ventes.</p>
-        <p><strong>Ressenti :</strong> L'infrastructure (VLANs, trunks, routage inter-VLAN) s'est bien passée. La difficulté est venue sur les ACL : je ne savais pas toujours sur quelle interface les appliquer ni dans quel sens.</p>
-        <p><strong>Analyse :</strong> Je configurais sans modéliser le flux avant. Une fois le réflexe pris de me demander "d'où vient le paquet, par quelle interface entre-t-il ?", les erreurs ont disparu. L'ordre des règles dans une ACL est critique.</p>
-        <p><strong>Plan d'action :</strong> Rédiger les règles dans un tableau (source / destination / protocole / action) avant de les saisir. Pratiquer sur des topologies plus complexes pour automatiser ce raisonnement — compétence directement utile en entreprise pour sécuriser un réseau.</p>
+        <p class="ac-sub">Synthèse réflexive — Modèle de Gibbs</p>
+        <p><strong>Description :</strong> Déploiement d'une infrastructure DNS redondante, d'un service RDS avec RemoteApp et d'un serveur de messagerie hMailServer sur Windows Server 2016, en binôme sur 4 séances.</p>
+        <p><strong>Ressenti :</strong> Projet stimulant mais exigeant par la multiplicité des services. Satisfaction réelle lors des premières validations (échange de mails, délégation DNS), frustration lors des blocages dont la cause n'était pas immédiatement identifiable.</p>
+        <p><strong>Analyse :</strong> L'organisation séance par séance et la rigueur de documentation ont facilité le diagnostic. J'ai appris que chaque service a ses propres paramètres de sécurité à configurer explicitement, et que les enregistrements MX ne doivent jamais pointer vers un CNAME.</p>
+        <p><strong>Plan d'action :</strong> Systématiser la lecture des prérequis avant tout déploiement, vérifier les dépendances entre services (DNS → messagerie). Approfondir Active Directory et les GPO, directement applicables en alternance.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ AC21.06 ═══ -->
+  <!-- AC21.06 -->
   <section class="section" id="ac2106">
     <div class="section-header">
       <span class="section-num">02</span>
@@ -374,7 +387,13 @@
     </div>
 
     <div class="ac-card">
-      <div class="ac-card-title">Preuve — Gestion d'incident fibre en NOC (Alternance)</div>
+      <div class="ac-card-header">
+        <div class="ac-card-title">Preuve — Gestion d'incident fibre en NOC (Alternance)</div>
+        <div class="doc-btns">
+          <a href="preuve_AC2106.pdf" target="_blank" class="btn btn-doc">📄 Voir la preuve</a>
+          <a href="analyse_AC2106.pdf" target="_blank" class="btn btn-doc">🔍 Analyse réflexive</a>
+        </div>
+      </div>
       <div class="ac-body">
 
         <p class="ac-sub">Contexte</p>
@@ -389,10 +408,9 @@
         </div>
 
         <p class="ac-sub">Actions menées</p>
-        <p>Déclenchement du mainteneur contractuel. Pilotage de l'intervention terrain de A à Z : guidage du technicien en s'appuyant sur la ROP (Route Optique) pour localiser les boîtes et vérifier le parcours de la fibre. Coordination avec les collègues pour la surveillance post-intervention en cas de récidive.</p>
+        <p>Déclenchement du mainteneur contractuel. Pilotage de l'intervention terrain de A à Z en s'appuyant sur la ROP (Route Optique) pour localiser les boîtes et vérifier le parcours de la fibre. Coordination avec les collègues pour la surveillance post-intervention.</p>
 
-        <p class="ac-sub">Compétences mobilisées</p>
-        <div class="tags">
+        <div class="tags" style="margin-top:0.8rem">
           <span class="tag">Supervision réseau</span>
           <span class="tag">Pilotage intervention</span>
           <span class="tag">Lecture ROP</span>
@@ -402,16 +420,16 @@
       </div>
 
       <div class="reflexive-box">
-        <p class="ac-sub">Analyse réflexive — Modèle de Gibbs</p>
+        <p class="ac-sub">Synthèse réflexive — Modèle de Gibbs</p>
         <p><strong>Description :</strong> Résolution d'un incident de liaison fibre en NOC, de la création du ticket jusqu'au pilotage de l'intervention terrain, en collaboration avec l'équipe.</p>
-        <p><strong>Ressenti :</strong> De manière générale, le processus se passe bien. Je sais d'emblée vers quels acteurs me tourner, quelle équipe de techniciens déclencher, si le support est nécessaire.</p>
-        <p><strong>Difficultés identifiées :</strong> J'ai du mal à transmettre les informations au bon vocabulaire technique lors des passations entre shifts. Je rencontre aussi des difficultés à piloter les cas complexes où les choses ne se passent pas comme prévu (module changé sans retour de signal, technicien qui ne retrouve pas les boîtes).</p>
-        <p><strong>Plan d'action :</strong> Prendre plus d'interventions, solliciter mes collègues pour m'aider au pilotage dans les cas difficiles, et travailler le vocabulaire technique pour être plus efficace lors des passations.</p>
+        <p><strong>Ressenti :</strong> De manière générale, le processus se passe bien. Je sais d'emblée vers quels acteurs me tourner, quelle équipe déclencher, si le support est nécessaire.</p>
+        <p><strong>Difficultés :</strong> Mal à transmettre les informations au bon vocabulaire technique lors des passations entre shifts. Difficultés à piloter les cas complexes où les choses ne se passent pas comme prévu.</p>
+        <p><strong>Plan d'action :</strong> Prendre plus d'interventions, solliciter les collègues pour le pilotage dans les cas difficiles, et travailler le vocabulaire technique pour être plus efficace lors des passations.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ AC23.01 ═══ -->
+  <!-- AC23.01 -->
   <section class="section" id="ac2301">
     <div class="section-header">
       <span class="section-num">03</span>
@@ -422,11 +440,17 @@
     </div>
 
     <div class="ac-card">
-      <div class="ac-card-title">Preuve — Module R4.05 · Bash &amp; Ansible</div>
+      <div class="ac-card-header">
+        <div class="ac-card-title">Preuve — Module R4.05 · Bash &amp; Ansible</div>
+        <div class="doc-btns">
+          <a href="preuve_AC2301.pdf" target="_blank" class="btn btn-doc">📄 Voir la preuve</a>
+          <a href="analyse_AC2301.pdf" target="_blank" class="btn btn-doc">🔍 Analyse réflexive</a>
+        </div>
+      </div>
       <div class="ac-body">
 
         <p class="ac-sub">Contexte</p>
-        <p>Module R4.05 (4h CM, 9h TD, 12h TP). Objectif : automatiser des tâches d'administration système Linux via des scripts Bash avancés et Ansible. Les TPs se déroulaient sur des machines Ubuntu, en lien direct avec des scénarios d'administration réels.</p>
+        <p>Module R4.05 (4h CM, 9h TD, 12h TP). Automatisation de tâches d'administration système Linux via Bash avancé et Ansible. TPs sur machines Ubuntu, en lien direct avec des scénarios d'administration réels.</p>
 
         <p class="ac-sub">Savoirs mis en œuvre</p>
         <div class="tags" style="margin-bottom:0.8rem">
@@ -446,7 +470,7 @@
           <li class="ok">Analyse de logs avec grep/awk/sed : Fonctionnel</li>
           <li class="ok">Planification cron — sauvegarde quotidienne : Validée</li>
           <li class="ok">Inventaire Ansible + connectivité SSH sans mot de passe : Validés</li>
-          <li class="ok">Playbook déploiement Apache avec handler de redémarrage : Fonctionnel</li>
+          <li class="ok">Playbook déploiement Apache avec handler : Fonctionnel</li>
           <li class="ok">Playbook multi-distributions Debian/RedHat : Fonctionnel</li>
           <li class="ok">Structuration via rôles Ansible : Réalisée</li>
         </ul>
@@ -454,32 +478,32 @@
         <p class="ac-sub">Problèmes rencontrés &amp; solutions</p>
         <div class="problem-block">
           <p class="prob-label">Problème 1 — Shebang Bash vs sh</p>
-          <p>Un script fonctionnait avec <code>bash</code> mais échouait avec <code>sh</code>.</p>
+          <p>Script fonctionnel avec <code>bash</code> mais échouait avec <code>sh</code>.</p>
           <p style="margin-top:0.4rem"><strong>Solution :</strong> vérifier le shebang (<code>#!/bin/bash</code>) et déboguer avec <code>bash -x</code>.</p>
         </div>
         <div class="problem-block">
           <p class="prob-label">Problème 2 — SSH Ansible (Permission denied)</p>
           <p>Ansible ne pouvait pas se connecter aux nœuds gérés.</p>
-          <p style="margin-top:0.4rem"><strong>Solution :</strong> la clé SSH publique n'avait pas été copiée. Utilisation de <code>ssh-copy-id</code> puis vérification avec <code>ansible all -m ping</code>.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> clé SSH publique non copiée. Utilisation de <code>ssh-copy-id</code> puis vérification avec <code>ansible all -m ping</code>.</p>
         </div>
         <div class="problem-block">
           <p class="prob-label">Problème 3 — Expressions régulières grep</p>
           <p>Certains patterns non reconnus avec <code>grep</code> standard.</p>
-          <p style="margin-top:0.4rem"><strong>Solution :</strong> confusion entre grep (ERE désactivé par défaut) et <code>grep -E</code>. Passage à <code>grep -E</code> ou <code>egrep</code>.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> passage à <code>grep -E</code> pour activer les ERE.</p>
         </div>
       </div>
 
       <div class="reflexive-box">
-        <p class="ac-sub">Analyse réflexive — Modèle de Gibbs</p>
+        <p class="ac-sub">Synthèse réflexive — Modèle de Gibbs</p>
         <p><strong>Description :</strong> Automatisation de tâches d'administration Linux via Bash et Ansible — gestion d'utilisateurs, monitoring, analyse de logs, déploiement Apache multi-distributions.</p>
-        <p><strong>Ressenti &amp; déclic :</strong> Bash était déjà un peu connu, mais les scripts avancés (gestion des erreurs, codes de retour, expressions régulières) m'ont demandé plus de temps. Le déclic : comprendre que chaque commande Linux retourne un code de retour testable — c'est ce qui permet d'écrire des scripts robustes.</p>
-        <p><strong>Analyse :</strong> Les erreurs venaient souvent d'un manque de rigueur sur les détails (variable mal nommée, indice de tableau). L'automatisation exige plus de précision que la configuration manuelle : une erreur dans un script se reproduit sur toutes les machines. La logique d'idempotence d'Ansible est un vrai changement de paradigme.</p>
-        <p><strong>Plan d'action :</strong> Tester les scripts sur un environnement isolé avant tout déploiement (<code>--check --diff</code> avec Ansible, <code>bash -n</code> pour la syntaxe). Approfondir les rôles Ansible pour structurer des projets réutilisables. Ce module est directement en lien avec mon alternance : l'automatisation de tâches répétitives est au cœur des pratiques NOC.</p>
+        <p><strong>Ressenti &amp; déclic :</strong> Bash était déjà un peu connu, mais les scripts avancés m'ont demandé plus de temps. Le déclic : chaque commande Linux retourne un code de retour testable — c'est ce qui permet d'écrire des scripts robustes.</p>
+        <p><strong>Analyse :</strong> Les erreurs venaient souvent d'un manque de rigueur sur les détails. L'automatisation exige plus de précision que la configuration manuelle : une erreur dans un script se reproduit sur toutes les machines. La logique d'idempotence d'Ansible est un vrai changement de paradigme.</p>
+        <p><strong>Plan d'action :</strong> Tester les scripts sur un environnement isolé avant déploiement (<code>--check --diff</code> avec Ansible). Approfondir les rôles Ansible. Ce module est directement en lien avec mon alternance.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ CONCLUSION ═══ -->
+  <!-- CONCLUSION -->
   <section class="section" id="conclusion">
     <div class="section-header">
       <span class="section-num">04</span>
@@ -489,21 +513,21 @@
     </div>
 
     <p style="max-width:680px; margin-bottom:2rem; font-size:0.95rem;">
-      Ces trois apprentissages critiques couvrent des dimensions complémentaires de mon parcours BUT R&T : la sécurisation des réseaux, le travail collaboratif en environnement professionnel, et l'automatisation système. Ensemble, ils reflètent une montée en compétences progressive sur les semestres 3 et 4.
+      Ces trois apprentissages critiques couvrent des dimensions complémentaires de mon parcours BUT R&T : le déploiement de services réseau avancés, le travail collaboratif en environnement professionnel, et l'automatisation système. Ensemble, ils reflètent une montée en compétences progressive sur les semestres 3 et 4.
     </p>
 
     <div class="conclusion-grid">
       <div class="concl-item">
-        <p class="label">AC21.01 — Routage &amp; ACL</p>
-        <p>Acquis sur la configuration et le dépannage des ACL étendues. Axe d'amélioration : modéliser systématiquement les flux avant toute configuration pour éviter les erreurs de sens et d'ordre.</p>
+        <p class="label">AC21.04 — Services réseau</p>
+        <p>Infrastructure DNS, RDS et messagerie déployée et validée. À renforcer : anticiper les dépendances entre services et consulter les prérequis avant configuration.</p>
       </div>
       <div class="concl-item">
         <p class="label">AC21.06 — Travail en équipe</p>
-        <p>Bonne maîtrise du processus de résolution d'incidents en NOC. À renforcer : le vocabulaire technique lors des passations et la gestion des cas complexes sous pression.</p>
+        <p>Bonne maîtrise du processus de résolution d'incidents en NOC. À renforcer : vocabulaire technique lors des passations et gestion des cas complexes sous pression.</p>
       </div>
       <div class="concl-item">
         <p class="label">AC23.01 — Automatisation</p>
-        <p>Scripts Bash et playbooks Ansible fonctionnels et validés. Prochain cap : structuration via rôles Ansible et intégration de tests systématiques avant déploiement en production.</p>
+        <p>Scripts Bash et playbooks Ansible fonctionnels et validés. Prochain cap : rôles Ansible et tests systématiques avant déploiement en production.</p>
       </div>
     </div>
   </section>
