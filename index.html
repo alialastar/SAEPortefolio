@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Alia ABDEDAIME</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #F7F6F2;
+      --surface:  #FFFFFF;
+      --border:   #E0DDD6;
+      --ink:      #1A1916;
+      --muted:    #8A8780;
+      --accent:   #1B4F72;
+      --accent2:  #2E86AB;
+      --tag-bg:   #EAF2F8;
+      --tag-txt:  #1B4F72;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'IBM Plex Sans', sans-serif;
+      --mono:     'IBM Plex Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color .25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 860px; margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+      display: grid; grid-template-columns: 1fr 1px 320px; gap: 3rem;
+      align-items: start;
+      animation: fadeUp .8s ease both;
+    }
+    .hero-divider { background: var(--border); }
+    .hero-left {}
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      font-weight: 700; line-height: 1.05;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc {
+      font-size: 1rem; color: var(--muted);
+      max-width: 420px; margin-bottom: 2rem;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      font-family: var(--sans); font-size: 0.8rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; border: 1px solid transparent;
+      transition: all .25s; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #154060; }
+    .btn-ghost { border-color: var(--border); color: var(--muted); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-right {}
+    .info-block { margin-bottom: 1.8rem; }
+    .info-label {
+      font-family: var(--mono);
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .info-val { font-size: 0.9rem; color: var(--ink); }
+    .info-val a { color: var(--accent); text-decoration: none; }
+    .info-val a:hover { text-decoration: underline; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+    .tag {
+      background: var(--tag-bg); color: var(--tag-txt);
+      font-size: 0.72rem; padding: 0.25rem 0.6rem;
+      font-family: var(--mono);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 860px; margin: 0 auto;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .section-header {
+      display: flex; align-items: baseline; gap: 1.2rem;
+      margin-bottom: 2.8rem;
+    }
+    .section-num {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--muted); letter-spacing: 0.15em;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.9rem; font-weight: 600;
+    }
+    .section-ac {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--accent2); letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── AC CARD ── */
+    .ac-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.2rem 2.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .ac-card-title {
+      font-family: var(--serif);
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--accent); margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .ac-card-title::before {
+      content: ''; display: block;
+      width: 28px; height: 2px; background: var(--accent2);
+      flex-shrink: 0;
+    }
+    .ac-body { font-size: 0.92rem; color: var(--ink); }
+    .ac-body p { margin-bottom: 0.8rem; }
+    .ac-body p:last-child { margin-bottom: 0; }
+
+    .ac-sub {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin: 1.4rem 0 0.5rem;
+    }
+
+    .result-list {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .result-list li {
+      font-family: var(--mono); font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-left: 2px solid var(--border);
+      color: var(--ink);
+    }
+    .result-list li.ok { border-color: #27AE60; }
+    .result-list li.ko { border-color: #C0392B; }
+
+    .reflexive-box {
+      background: var(--tag-bg);
+      border-left: 3px solid var(--accent);
+      padding: 1.4rem 1.6rem;
+      margin-top: 1.6rem;
+    }
+    .reflexive-box .ac-sub { margin-top: 0; }
+    .reflexive-box p { font-size: 0.9rem; color: var(--ink); margin-bottom: 0.7rem; }
+    .reflexive-box p:last-child { margin-bottom: 0; }
+
+    .problem-block {
+      background: #FEF9F0;
+      border: 1px solid #F0D9A8;
+      padding: 1rem 1.2rem;
+      margin-top: 0.6rem; margin-bottom: 0.4rem;
+    }
+    .problem-block .prob-label {
+      font-family: var(--mono); font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: #9A6B00; margin-bottom: 0.3rem;
+    }
+    .problem-block p { font-size: 0.88rem; }
+
+    /* ── CONCLUSION ── */
+    .conclusion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem; margin-top: 1rem;
+    }
+    .concl-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.4rem;
+    }
+    .concl-item .label {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 0.6rem;
+    }
+    .concl-item p { font-size: 0.88rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.72rem; color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 3.5rem 1.2rem 2.5rem; }
+      .hero-divider { display: none; }
+      .section { padding: 2.5rem 1.2rem; }
+      .ac-card { padding: 1.4rem 1.2rem; }
+      .conclusion-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#">Alia ABDEDAIME</a>
+    <ul class="nav-links">
+      <li><a href="#ac2101">AC21.01</a></li>
+      <li><a href="#ac2106">AC21.06</a></li>
+      <li><a href="#ac2301">AC23.01</a></li>
+      <li><a href="#conclusion">Bilan</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">E-Portfolio · BUT R&T · 2025 — 2026</p>
+      <h1>Alia<br><em>ABDEDAIME</em></h1>
+      <p class="hero-desc">
+        Étudiante en 2ème année de BUT Réseaux &amp; Télécommunications, parcours ROM.
+        Ce portfolio présente mes apprentissages critiques travaillés lors des SAÉs et de mon alternance.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:alia.abdedaime@etu.univ-st-etienne.fr" class="btn btn-primary">Me contacter</a>
+        <a href="https://github.com/alialastar" target="_blank" class="btn btn-ghost">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-right">
+      <div class="info-block">
+        <p class="info-label">Formation</p>
+        <p class="info-val">BUT R&T — Parcours ROM<br>IUT de Roanne</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Apprentissages critiques</p>
+        <div class="tags">
+          <span class="tag">AC21.01</span>
+          <span class="tag">AC21.06</span>
+          <span class="tag">AC23.01</span>
+        </div>
+      </div>
+      <div class="info-block">
+        <p class="info-label">Contact</p>
+        <p class="info-val">
+          <a href="mailto:alia.abdedaime@etu.univ-st-etienne.fr">alia.abdedaime@etu.univ-st-etienne.fr</a><br>
+          <a href="https://github.com/alialastar" target="_blank">github.com/alialastar</a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ AC21.01 ═══ -->
+  <section class="section" id="ac2101">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div>
+        <p class="section-ac">AC21.01 · Compétence Administrer</p>
+        <h2 class="section-title">Configurer et dépanner le routage dans un réseau</h2>
+      </div>
+    </div>
+
+    <!-- PREUVE -->
+    <div class="ac-card">
+      <div class="ac-card-title">Preuve — TD ACL étendues (R3.01 Réseaux de campus)</div>
+      <div class="ac-body">
+
+        <p class="ac-sub">Contexte</p>
+        <p>TD réalisé dans le cadre du module R3.01. Objectif : sécuriser le trafic d'un réseau d'entreprise segmenté en VLANs à l'aide de listes de contrôle d'accès étendues. Infrastructure simulée : deux routeurs Cisco (R1, R2), deux commutateurs (S1, S2) et deux PC répartis sur trois VLANs — Gestion (VLAN 20), Opérations (VLAN 30), Ventes (VLAN 40). R1 assure le routage inter-VLAN en mode <em>router-on-a-stick</em>.</p>
+
+        <p class="ac-sub">Savoirs mis en œuvre</p>
+        <div class="tags" style="margin-bottom:0.8rem">
+          <span class="tag">ACL étendues</span>
+          <span class="tag">Inter-VLAN 802.1Q</span>
+          <span class="tag">Trunking</span>
+          <span class="tag">SSH / HTTP / HTTPS / ICMP</span>
+          <span class="tag">Cisco IOS</span>
+        </div>
+        <p>Placement des ACL : une ACL étendue doit être appliquée au plus près de la source. Filtrage par protocole (TCP, UDP, ICMP), adresse source/destination et numéro de port.</p>
+
+        <p class="ac-sub">Résultats des tests de vérification</p>
+        <ul class="result-list">
+          <li class="ko">PC-A → ping Ventes (10.40.0.10) : BLOQUÉ ✓</li>
+          <li class="ok">PC-A → ping Gestion (10.20.0.1) : Autorisé ✓</li>
+          <li class="ko">PC-B → ping Opérations (10.30.0.10) : BLOQUÉ ✓</li>
+          <li class="ko">PC-B → ping Gestion (10.20.0.1) : BLOQUÉ ✓</li>
+          <li class="ok">PC-B → ping Loopback R1 (172.16.1.1) : Autorisé ✓</li>
+          <li class="ko">PC-B → HTTPS Gestion : BLOQUÉ ✓</li>
+          <li class="ok">PC-B → HTTPS Loopback : Autorisé ✓</li>
+          <li class="ko">PC-B → SSH R2 (10.20.0.4) : BLOQUÉ ✓</li>
+          <li class="ok">PC-B → SSH Loopback : Autorisé ✓</li>
+        </ul>
+
+        <p class="ac-sub">Problèmes rencontrés &amp; solutions</p>
+        <div class="problem-block">
+          <p class="prob-label">Problème 1 — Sens d'application ACL</p>
+          <p>Confusion inbound/outbound : une ACL appliquée en outbound sur la mauvaise sous-interface ne filtrait pas le trafic attendu.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> retracer le chemin du paquet depuis la source pour identifier la bonne interface et le bon sens (inbound sur la sous-interface du VLAN source).</p>
+        </div>
+        <div class="problem-block">
+          <p class="prob-label">Problème 2 — Ordre des règles ACL</p>
+          <p>Un <code>permit any</code> placé trop haut dans la liste neutralisait les règles <code>deny</code> suivantes.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> placer systématiquement les règles <code>deny</code> spécifiques avant tout <code>permit any</code>.</p>
+        </div>
+      </div>
+
+      <!-- ANALYSE RÉFLEXIVE -->
+      <div class="reflexive-box">
+        <p class="ac-sub">Analyse réflexive — Modèle de Gibbs</p>
+        <p><strong>Description :</strong> Configuration de quatre ACL étendues nommées sur R1 pour implémenter des politiques de sécurité précises entre les VLANs Gestion, Opérations et Ventes.</p>
+        <p><strong>Ressenti :</strong> L'infrastructure (VLANs, trunks, routage inter-VLAN) s'est bien passée. La difficulté est venue sur les ACL : je ne savais pas toujours sur quelle interface les appliquer ni dans quel sens.</p>
+        <p><strong>Analyse :</strong> Je configurais sans modéliser le flux avant. Une fois le réflexe pris de me demander "d'où vient le paquet, par quelle interface entre-t-il ?", les erreurs ont disparu. L'ordre des règles dans une ACL est critique.</p>
+        <p><strong>Plan d'action :</strong> Rédiger les règles dans un tableau (source / destination / protocole / action) avant de les saisir. Pratiquer sur des topologies plus complexes pour automatiser ce raisonnement — compétence directement utile en entreprise pour sécuriser un réseau.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AC21.06 ═══ -->
+  <section class="section" id="ac2106">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div>
+        <p class="section-ac">AC21.06 · Compétence Administrer</p>
+        <h2 class="section-title">Travailler en équipe pour développer ses compétences professionnelles</h2>
+      </div>
+    </div>
+
+    <div class="ac-card">
+      <div class="ac-card-title">Preuve — Gestion d'incident fibre en NOC (Alternance)</div>
+      <div class="ac-body">
+
+        <p class="ac-sub">Contexte</p>
+        <p>En période d'entreprise, j'ai travaillé sur la gestion des désécurisations sur le périmètre IP. Ces interventions mobilisent plusieurs acteurs : techniciens terrain, superviseurs réseau et support pour les cas complexes. Le travail en équipe est indispensable à la résolution des incidents.</p>
+
+        <p class="ac-sub">Cas concret — Incident liaison fibre</p>
+        <p>Souci détecté sur la liaison <strong>75BRU1-SWAGR-1S XGigabitEthernet2/0/3 → 75lau1-nro-1 Port 2/4</strong>. Ticket créé via ALARM MANAGER. Diagnostic initial : statut administratif UP mais statut réel DOWN sur le port.</p>
+
+        <div class="problem-block">
+          <p class="prob-label">Diagnostic relevé</p>
+          <p>L'équipement distant recevait <strong>-33 dBm</strong> (proche de -40 dBm = forte dégradation). Malgré l'envoi de signal par l'équipement A, l'équipement B ne recevait rien — suspicion de coupure fibre.</p>
+        </div>
+
+        <p class="ac-sub">Actions menées</p>
+        <p>Déclenchement du mainteneur contractuel. Pilotage de l'intervention terrain de A à Z : guidage du technicien en s'appuyant sur la ROP (Route Optique) pour localiser les boîtes et vérifier le parcours de la fibre. Coordination avec les collègues pour la surveillance post-intervention en cas de récidive.</p>
+
+        <p class="ac-sub">Compétences mobilisées</p>
+        <div class="tags">
+          <span class="tag">Supervision réseau</span>
+          <span class="tag">Pilotage intervention</span>
+          <span class="tag">Lecture ROP</span>
+          <span class="tag">Trouble ticket</span>
+          <span class="tag">Travail en équipe</span>
+        </div>
+      </div>
+
+      <div class="reflexive-box">
+        <p class="ac-sub">Analyse réflexive — Modèle de Gibbs</p>
+        <p><strong>Description :</strong> Résolution d'un incident de liaison fibre en NOC, de la création du ticket jusqu'au pilotage de l'intervention terrain, en collaboration avec l'équipe.</p>
+        <p><strong>Ressenti :</strong> De manière générale, le processus se passe bien. Je sais d'emblée vers quels acteurs me tourner, quelle équipe de techniciens déclencher, si le support est nécessaire.</p>
+        <p><strong>Difficultés identifiées :</strong> J'ai du mal à transmettre les informations au bon vocabulaire technique lors des passations entre shifts. Je rencontre aussi des difficultés à piloter les cas complexes où les choses ne se passent pas comme prévu (module changé sans retour de signal, technicien qui ne retrouve pas les boîtes).</p>
+        <p><strong>Plan d'action :</strong> Prendre plus d'interventions, solliciter mes collègues pour m'aider au pilotage dans les cas difficiles, et travailler le vocabulaire technique pour être plus efficace lors des passations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AC23.01 ═══ -->
+  <section class="section" id="ac2301">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div>
+        <p class="section-ac">AC23.01 · Compétence Automatiser</p>
+        <h2 class="section-title">Automatiser l'administration système avec des scripts</h2>
+      </div>
+    </div>
+
+    <div class="ac-card">
+      <div class="ac-card-title">Preuve — Module R4.05 · Bash &amp; Ansible</div>
+      <div class="ac-body">
+
+        <p class="ac-sub">Contexte</p>
+        <p>Module R4.05 (4h CM, 9h TD, 12h TP). Objectif : automatiser des tâches d'administration système Linux via des scripts Bash avancés et Ansible. Les TPs se déroulaient sur des machines Ubuntu, en lien direct avec des scénarios d'administration réels.</p>
+
+        <p class="ac-sub">Savoirs mis en œuvre</p>
+        <div class="tags" style="margin-bottom:0.8rem">
+          <span class="tag">Bash avancé</span>
+          <span class="tag">Expressions régulières</span>
+          <span class="tag">grep / sed / awk</span>
+          <span class="tag">cron / crontab</span>
+          <span class="tag">Ansible</span>
+          <span class="tag">Playbooks YAML</span>
+          <span class="tag">Rôles Ansible</span>
+        </div>
+
+        <p class="ac-sub">Tâches réalisées &amp; résultats</p>
+        <ul class="result-list">
+          <li class="ok">Script Bash — création d'utilisateurs depuis CSV : Fonctionnel</li>
+          <li class="ok">Script monitoring de service avec alerte dans les logs : Fonctionnel</li>
+          <li class="ok">Analyse de logs avec grep/awk/sed : Fonctionnel</li>
+          <li class="ok">Planification cron — sauvegarde quotidienne : Validée</li>
+          <li class="ok">Inventaire Ansible + connectivité SSH sans mot de passe : Validés</li>
+          <li class="ok">Playbook déploiement Apache avec handler de redémarrage : Fonctionnel</li>
+          <li class="ok">Playbook multi-distributions Debian/RedHat : Fonctionnel</li>
+          <li class="ok">Structuration via rôles Ansible : Réalisée</li>
+        </ul>
+
+        <p class="ac-sub">Problèmes rencontrés &amp; solutions</p>
+        <div class="problem-block">
+          <p class="prob-label">Problème 1 — Shebang Bash vs sh</p>
+          <p>Un script fonctionnait avec <code>bash</code> mais échouait avec <code>sh</code>.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> vérifier le shebang (<code>#!/bin/bash</code>) et déboguer avec <code>bash -x</code>.</p>
+        </div>
+        <div class="problem-block">
+          <p class="prob-label">Problème 2 — SSH Ansible (Permission denied)</p>
+          <p>Ansible ne pouvait pas se connecter aux nœuds gérés.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> la clé SSH publique n'avait pas été copiée. Utilisation de <code>ssh-copy-id</code> puis vérification avec <code>ansible all -m ping</code>.</p>
+        </div>
+        <div class="problem-block">
+          <p class="prob-label">Problème 3 — Expressions régulières grep</p>
+          <p>Certains patterns non reconnus avec <code>grep</code> standard.</p>
+          <p style="margin-top:0.4rem"><strong>Solution :</strong> confusion entre grep (ERE désactivé par défaut) et <code>grep -E</code>. Passage à <code>grep -E</code> ou <code>egrep</code>.</p>
+        </div>
+      </div>
+
+      <div class="reflexive-box">
+        <p class="ac-sub">Analyse réflexive — Modèle de Gibbs</p>
+        <p><strong>Description :</strong> Automatisation de tâches d'administration Linux via Bash et Ansible — gestion d'utilisateurs, monitoring, analyse de logs, déploiement Apache multi-distributions.</p>
+        <p><strong>Ressenti &amp; déclic :</strong> Bash était déjà un peu connu, mais les scripts avancés (gestion des erreurs, codes de retour, expressions régulières) m'ont demandé plus de temps. Le déclic : comprendre que chaque commande Linux retourne un code de retour testable — c'est ce qui permet d'écrire des scripts robustes.</p>
+        <p><strong>Analyse :</strong> Les erreurs venaient souvent d'un manque de rigueur sur les détails (variable mal nommée, indice de tableau). L'automatisation exige plus de précision que la configuration manuelle : une erreur dans un script se reproduit sur toutes les machines. La logique d'idempotence d'Ansible est un vrai changement de paradigme.</p>
+        <p><strong>Plan d'action :</strong> Tester les scripts sur un environnement isolé avant tout déploiement (<code>--check --diff</code> avec Ansible, <code>bash -n</code> pour la syntaxe). Approfondir les rôles Ansible pour structurer des projets réutilisables. Ce module est directement en lien avec mon alternance : l'automatisation de tâches répétitives est au cœur des pratiques NOC.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONCLUSION ═══ -->
+  <section class="section" id="conclusion">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div>
+        <h2 class="section-title">Bilan général</h2>
+      </div>
+    </div>
+
+    <p style="max-width:680px; margin-bottom:2rem; font-size:0.95rem;">
+      Ces trois apprentissages critiques couvrent des dimensions complémentaires de mon parcours BUT R&T : la sécurisation des réseaux, le travail collaboratif en environnement professionnel, et l'automatisation système. Ensemble, ils reflètent une montée en compétences progressive sur les semestres 3 et 4.
+    </p>
+
+    <div class="conclusion-grid">
+      <div class="concl-item">
+        <p class="label">AC21.01 — Routage &amp; ACL</p>
+        <p>Acquis sur la configuration et le dépannage des ACL étendues. Axe d'amélioration : modéliser systématiquement les flux avant toute configuration pour éviter les erreurs de sens et d'ordre.</p>
+      </div>
+      <div class="concl-item">
+        <p class="label">AC21.06 — Travail en équipe</p>
+        <p>Bonne maîtrise du processus de résolution d'incidents en NOC. À renforcer : le vocabulaire technique lors des passations et la gestion des cas complexes sous pression.</p>
+      </div>
+      <div class="concl-item">
+        <p class="label">AC23.01 — Automatisation</p>
+        <p>Scripts Bash et playbooks Ansible fonctionnels et validés. Prochain cap : structuration via rôles Ansible et intégration de tests systématiques avant déploiement en production.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Alia ABDEDAIME · BUT R&T Réseaux &amp; Télécommunications · IUT de Roanne
+  </footer>
+
+</body>
+</html>
